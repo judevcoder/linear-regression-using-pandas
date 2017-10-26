@@ -1,0 +1,43 @@
+Hi Tom,
+
+this will describe two tasks, both statistical investigations and both should run in a time series data environment.
+
+1. I want you to make a candlestick analysis.
+
+Candlestick explanation: 
+
+The exchange_plot.py shows a example for standard plotting a exchange asset. It is called candlestick_ohlc. A candlestick shows the movement of an asset in a given time frame, 5 min, 2 hours or 1 d. Candlestick is defined as close minus open, but close minus close is nealy the same and should be used here because in my historic data is no open value. That about candlesticks, questions? Ask me I will try to explain.
+
+Task:
+
+I want to know a lot of things. I will formulate questions and if it is not possible to answear all of them, in an automated running programm on time series. Or the worktime runs out of limit, we can continue later. Partly results will be classified as sucess, because it's hard stuff I think. I'm not sure which is the right statistic test. What I tried to use was a pairwise statistic alytics funktion. I did not understand how to use this tool right. We have 5 options; correlated: Wilcoxon-test, pairwise t-test, not correlated: Mann-Whitney-U-test, Welch-test and t-test. I would say there is a correlation. If the candelsticks are normally distributed, the pairwise t-test is the right. If you are not sure just comment it somewhere and let it open. So I know where you think, that I've to think about it. On this page are tools and documentations, which I would use. http://www.statsmodels.org/stable/stats.html#multiple-tests-and-multiple-comparison-procedures 
+
+I want to know: 
+
+If one candlestick in negative, how is the probabilty that the next one is positiv? And the opposite. 
+If two candlesticks in a row are negative, how is the probabilty that the next one is positiv? And the next two too.
+If three ... and so on. I don't know maximum the number of negative candlesticks and how often happens that. There is a border, that it makes no sense anymore.
+
+What about absolute values? Does a huge absolute negative value is followed by a huge absolute positive value? I noticed there is a correlation, but I need to have statistcs about it to feed my algorithm. And of course, two huge absolute values are followed by ... with that probabilty and so on. The huge values are the values I'm intersted in special. 
+
+This following part of the task should be done at last, if there is time to go on.
+The candlestick statistics should be grouped in three parts/cases and stand alone each part, to see the difference. Part one for rising price values with strong increase. Part two for timespans which has low price increase or decrease and part three for strong decrese. This should be possible with the integation of the linear regression (1 month). The values of the slope make the decision which part the statistics belong to. Hard is to figure out, how does it run automatically. For example we have a increase followed by a decrease area. The linear regression noticed a falling slope and a increasing sigma. That could be the sign to fix another start point for the linear regression and determine the slope again to be ordered to the right part. The magin traders generate a typical pattern in falling price cases. This is a worth a statistical investigation.
+
+This should run on a time series (rolling function) and present the results in a kind of schedule. I think the statistics will change over time, because of the volumes and price changes over time. So I want to see the statistics from the last month, 6 month and 1 year. The schedule should show the analysis for candlesicks with a timespan 2h and 5 min.
+
+2. correlation between coins
+
+This should be much more simple. I want a correlation investigation of two coins. I noticed, a correlation between USDT_BTC and some other assets like USDT_ETH or USDT_XMR/DASH. Pandas has a funktion to do that very easy (like this example code: frame['a'].corr(frame['b'], method='spearman') or frame.cov() ). This is a pairwise corralation too, but it compares two timeseries. In the first task it is inside a single timeseries. I forgot at present the difference between covariance and correlation funktion. Which is more useful to investigate a correlation between two coins? What I expect is to know which coin is correlated with Bitcoin and which not, if I expect a movement, I can switch my value to another asset. That's the idea. If this is ready implemented, it would be easy to switch the method and decide between corr and cov. There should be something like a window or timespan, in this will the correlation investigation happen. This should be easy changeable for me.  
+
+The results of this investigation shoud be displayed in a schedule like in the other task. For a strog correlation I expect huge positive values and uncorrelated behavior is assumed with huge negative values. May a better idea to display the results, could be a graphical solution. A plot of the correlation values over time. Then I can see the change of the correlation value over time (3 graphs 1 week, 1 month and 6 month). I really don't know what the result is like, I can imagine but I don't know it really, so I can not be more exact in describing the task. If I see the results, the next step for me is to lern to interpret the results right and usefull.
+
+To learn to read this stats. I put the live_reading.py file in. This shows the possibilty to read continiously out of a data file. I would like to see the stats running in a time shift. We need a function which writes the historic data, for example every half sec 10 min into the file, which the graph comes from. So that it is possible how the stats change over the past time. 
+
+A other idea to do that investigation: Change the price value to percent change, before the correlation investigation, 100% is the all time high each coin for example. I think it should give the same result if we divide the whole asset values trough the all time high value.
+
+I gave you two assets for the 2. correation investigation. But I'm not sure if there will be found a correlation. If you are unhappy with the result, you should try to use USDT_BTC and USDT_ETH or USDT_XMR or USDT_DASH. There should you find for some timespans a strong correaltion. You have already USDT_BTC, I do not have the other data. You can get it from poloniex.com but I don't know exactly how. A friend gave me the other historical data, but he is on holliday for the next month, so I can't provide.
+
+Okay that's what I'm thinking. If you know better how to do such an investigation and get statistics, feel yourself free to improve me. The aim is to feed my trading algorithm with usefull data to predict price behavior. I still need a python programer here in berlin. I started trading cryptocurrencies in November 2016, I invested 14.000€. Value of coins 01.04.17 ~40k€. The last month was awesome, value of coins now >90k€. But I think it will decrease a little bit before the next rise. So you will get paid! But I try to keep the money in crypto. I want the algorithm to do, what I would do if I dont need sleep. The algorithm is only a important part of the big whole thing. I've a whole concept which predicts exponential grow of value up to a specific point. My concept has a close to zero risk in a high risk market. So if you are free and interested to work with me, you should move to Berlin. But I can't promise anything. At present I'm close to fullfill the proof work stage. After success I've to run through the proof of concept stage. Both is possible within 2 month. That's the point where to start with buisiness. My calculation predicts to be able to pay out a salary in autumn, for a programmer full time job, out of a part of the profit. The work which is to do before, is mostly for participation. If you are interested, tell it to me. But the confidential part must be done here.
+
+Please apologise my mistakes in typing words here, that's not my talent.
+

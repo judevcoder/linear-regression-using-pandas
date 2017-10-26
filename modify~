@@ -1,0 +1,1 @@
+df1=pd.DataFrame({df['timecalc'],df['weighted_average']})
